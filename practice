@@ -13,3 +13,94 @@ non_us_some <- all_wars_matrix[1:2, 2]
   
 # Average non-US revenue for first two movies
 mean(non_us_some)
+
+# all_wars_matrix and ticket_prices_matrix are available in your workspace
+all_wars_matrix
+ticket_prices_matrix
+
+# Estimated number of visitors
+visitors <- all_wars_matrix/ticket_prices_matrix
+visitors
+# US visitors
+us_visitors <- visitors[,1]
+
+# Average number of US visitors
+mean(us_visitors)
+
+# factor refers to a statistical data type used to store categorical variables 
+# to create factors in R, use of the function factor()
+# create a vector that contains limited number of factor levels (categorical variables)
+# for ordinal variables (low, medium, high), use "order=TRUE" and level
+
+temperature_vector <- c("High", "Low", "High","Low", "Medium")
+factor_temperature_vector <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
+
+# Code to build factor_survey_vector
+survey_vector <- c("M", "F", "F", "M", "M")
+factor_survey_vector <- factor(survey_vector)
+
+# Create speed_vector
+speed_vector <- c("medium", "slow", "slow", "medium", "fast")
+
+# Convert speed_vector to ordered factor vector
+factor_speed_vector <-factor(speed_vector, order=TRUE, levels=c("slow", "medium", "fast"))
+
+#data frame
+
+str(), head(), 
+
+# Select first 5 values of diameter column
+planets_df
+planets_df[1:5, 3]
+
+# matrix[row, col]
+
+# you will often want to select an entire column, namely the specific variable from a data frame. 
+# if your columns have names, you can use the $ sign. 
+
+planets_df$diameter
+
+# select a subset from a data frame. subset() function
+subset(planets_df, diameter<1)
+
+#order() function
+
+# Use order() to create positions
+positions <-  order(planets_df$diameter)
+positions
+
+# Use positions to sort planets_df
+planets_df[positions, ]
+
+# Vector with numerics from 1 up to 10
+my_vector <- 1:10 
+
+# Matrix with numerics from 1 up to 9
+my_matrix <- matrix(1:9, ncol = 3)
+
+# First 10 elements of the built-in data frame mtcars
+my_df <- mtcars[1:10,]
+
+# Adapt list() call to give the components names
+my_list <- list(vec=my_vector, mat=my_matrix, df=my_df)
+
+# Print out my_list
+my_list
+
+# Use the table from the exercise to define the comments and scores vectors
+scores <- c(4.6, 5, 4.8, 5, 4.2)
+comments <- c("I would watch it again", "Amazing!", "I liked it", "One of the best movies", "Fascinating plot") 
+
+# Save the average of the scores vector as avg_review  
+avg_review<-mean(scores)
+avg_review
+
+# Combine scores and comments into the reviews_df data frame
+reviews_df<-data.frame(scores, comments)
+reviews_df
+
+# Create and print out a list, called departed_list
+departed_list<-list(movie_title, movie_actors, reviews_df, avg_review)
+departed_list
+
+
